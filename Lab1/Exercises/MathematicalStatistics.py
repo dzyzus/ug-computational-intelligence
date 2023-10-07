@@ -29,3 +29,9 @@ def vector_product(v1, v2):
     for val1, val2 in zip_object:
         print(f'val1_{iteration} - {val1} from v1 * val2 - {val2} from v2_{iteration} = {val1 * val2}')
         iteration += 1
+def dot_product(v1, v2):
+    zip_object = zip(v1, v2)
+    value = 0
+    for val1, val2 in zip_object:
+        value += val1 * val2
+    print(f'Dot product of {v1} and {v2} is equal {value}')
