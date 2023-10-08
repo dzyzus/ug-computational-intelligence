@@ -19,6 +19,7 @@ g) Dokonaj standaryzacji wektora z podpunktu (d). Wzór na standaryzację wykorz
 σ(x)
 Jaką średnią i odchylenie standardowe ma nowy wektor z?
 """
+import math
 
 def vector_sum(v1, v2):
     print(f'V1 sum: {sum(v1)}\nV2 sum: {sum(v2)}\nSum V1+V2: {sum(v1) + sum(v2)}')
@@ -29,9 +30,19 @@ def vector_product(v1, v2):
     for val1, val2 in zip_object:
         print(f'val1_{iteration} - {val1} from v1 * val2 - {val2} from v2_{iteration} = {val1 * val2}')
         iteration += 1
+
 def dot_product(v1, v2):
     zip_object = zip(v1, v2)
     value = 0
     for val1, val2 in zip_object:
         value += val1 * val2
     print(f'Dot product of {v1} and {v2} is equal {value}')
+
+def euclidean_distance(v1, v2):
+    iteration = 1
+    zip_object = zip(v1, v2)
+    value = 0
+    for val1, val2 in zip_object:
+        value += (val1 - val2)**2
+    print("Source: https://en.wikipedia.org/wiki/Euclidean_distance")
+    print(f'Euclidean distance is equal: {math.sqrt(value)}')
