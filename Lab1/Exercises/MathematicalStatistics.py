@@ -20,6 +20,7 @@ g) Dokonaj standaryzacji wektora z podpunktu (d). Wzór na standaryzację wykorz
 Jaką średnią i odchylenie standardowe ma nowy wektor z?
 """
 import math
+import random
 
 def vector_sum(v1, v2):
     print(f'V1 sum: {sum(v1)}\nV2 sum: {sum(v2)}\nSum V1+V2: {sum(v1) + sum(v2)}')
@@ -46,3 +47,16 @@ def euclidean_distance(v1, v2):
         value += (val1 - val2)**2
     print("Source: https://en.wikipedia.org/wiki/Euclidean_distance")
     print(f'Euclidean distance is equal: {math.sqrt(value)}')
+
+def random_vector(numberOfRandomValues):
+    vector = []
+    for i in range(0, numberOfRandomValues):
+        randomNumber = random.randint(1, 100)
+        vector.append(randomNumber)
+    return vector
+
+def vector_details(v1):
+    print(f'Vector: {v1}')
+    print(f'Average value of vector is: {sum(v1)/len(v1)}')
+    print(f'The min value of vector is: {min(v1)}')
+    print(f'The max value of vector is: {max(v1)}')

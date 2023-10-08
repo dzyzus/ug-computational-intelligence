@@ -36,3 +36,9 @@ MathematicalStatistics.dot_product(v1, v2)
 
 print("\nExercise - 2 c)\n")
 MathematicalStatistics.euclidean_distance(v1, v2)
+
+print("\nExercise - 2 d)\n")
+print(f'Generated vector: {MathematicalStatistics.random_vector(numberOfRandomValues=50)}')
+
+print("\nExercise - 2 e)\n")
+MathematicalStatistics.vector_details(MathematicalStatistics.random_vector(numberOfRandomValues=50))
