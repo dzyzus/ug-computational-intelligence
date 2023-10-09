@@ -38,7 +38,11 @@ print("\nExercise - 2 c)\n")
 MathematicalStatistics.euclidean_distance(v1, v2)
 
 print("\nExercise - 2 d)\n")
-print(f'Generated vector: {MathematicalStatistics.random_vector(numberOfRandomValues=50)}')
+randomVector = MathematicalStatistics.random_vector(numberOfRandomValues=50)
+print(f'Generated vector: {randomVector}')
 
 print("\nExercise - 2 e)\n")
-MathematicalStatistics.vector_details(MathematicalStatistics.random_vector(numberOfRandomValues=50))
+MathematicalStatistics.vector_details(randomVector)
+
+print("\nExercise - 2 f)\n")
+MathematicalStatistics.normalize_vector(randomVector)

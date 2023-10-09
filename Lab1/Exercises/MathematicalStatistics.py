@@ -57,6 +57,24 @@ def random_vector(numberOfRandomValues):
 
 def vector_details(v1):
     print(f'Vector: {v1}')
-    print(f'Average value of vector is: {sum(v1)/len(v1)}')
-    print(f'The min value of vector is: {min(v1)}')
-    print(f'The max value of vector is: {max(v1)}')
+    print(f'Average value: {average(v1)}')
+    print(f'The min value: {min(v1)}')
+    print(f'The max value: {max(v1)}')
+    print(f'The standard deviation: {math.sqrt(average(v1))}')
+
+def average(v1):
+    return sum(v1)/len(v1)
+
+def normalize_vector(v1):
+    vectorLength = 0
+    for value in v1:
+        vectorLength += value**2
+    vectorLength = math.sqrt(vectorLength)
+    normalized_vector = []
+    for var in v1:
+        normalized_vector.append(var/vectorLength)
+    print(f'V1: {v1}\nNormalized vector: {normalized_vector}')
+
+    """
+    todo index of max value vs value from normalized vecotr
+    """
