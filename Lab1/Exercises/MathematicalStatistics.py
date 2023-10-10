@@ -21,6 +21,7 @@ Jaką średnią i odchylenie standardowe ma nowy wektor z?
 """
 import math
 import random
+import numpy as np
 
 def vector_sum(v1, v2):
     print(f'V1 sum: {sum(v1)}\nV2 sum: {sum(v2)}\nSum V1+V2: {sum(v1) + sum(v2)}')
@@ -55,14 +56,20 @@ def random_vector(numberOfRandomValues):
         vector.append(randomNumber)
     return vector
 
+def standard_deviation(v1):
+    temp = []
+    for val in v1:
+        temp.append((val - mean_average(v1))**2)
+    return math.sqrt(sum(temp) / len(temp))
+
 def vector_details(v1):
     print(f'Vector: {v1}')
-    print(f'Average value: {average(v1)}')
+    print(f'Average value: {mean_average(v1)}')
     print(f'The min value: {min(v1)}')
     print(f'The max value: {max(v1)}')
-    print(f'The standard deviation: {math.sqrt(average(v1))}')
+    print(f'The standard deviation: {standard_deviation(v1)}')
 
-def average(v1):
+def mean_average(v1):
     return sum(v1)/len(v1)
 
 def normalize_vector(v1):
@@ -74,7 +81,17 @@ def normalize_vector(v1):
     for var in v1:
         normalized_vector.append(var/vectorLength)
     print(f'V1: {v1}\nNormalized vector: {normalized_vector}')
+    indexOfMaxVal = v1.index(max(v1))
+    print(f'Index of max value({max(v1)}) is {indexOfMaxVal} and is equal == {normalized_vector[indexOfMaxVal]})')
 
-    """
-    todo index of max value vs value from normalized vecotr
-    """
+def standardization_vector_numpy(v1):
+    numpyVector = np.array(v1)
+    print(f'Numpy method for standardization vector: \n{(numpyVector - numpyVector.mean())/numpyVector.std()}\n')
+
+def standardization_vector_manual(v1):
+    standardizedVector = []
+    for val in v1:
+        standardizedVector.append((val - mean_average(v1))/standard_deviation(v1))
+    print(f'Manual method for standardization vector: {standardizedVector}')
+    print(f'Mean average of standardized vector: {mean_average(standardizedVector)}')
+    print(f'Standard deviation of standardized vector: {standard_deviation(standardizedVector)}')
