@@ -1,6 +1,6 @@
 from Exercises import PrimeNumber
 from Exercises import MathematicalStatistics
-from Exercises import PlotLib
+from Exercises import DbAndPlotActions
 
 """
 prime(3)
@@ -54,13 +54,18 @@ MathematicalStatistics.standardization_vector_manual(randomVector)
 
 print("\nExercise - 3 a)\n")
 
-path = PlotLib.get_path("miasta.csv")
-cities = PlotLib.read_csv_file(path)
+path = DbAndPlotActions.get_path("miasta.csv")
+cities = DbAndPlotActions.read_csv_file(path)
 print(cities)
 print(f'\nOnly values: \n{cities.values}')
 
 print("\nExercise - 3 b)\n")
-PlotLib.add_row(path, ["2010", "460", "555", "405"])
-cities = PlotLib.read_csv_file(path)
+DbAndPlotActions.add_row(path, ['2010', '460', '555', '405'])
+cities = DbAndPlotActions.read_csv_file(path)
 print(cities)
 
+print("\nExercise - 3 c)\n")
+DbAndPlotActions.draw_plot_of_selected_city(cities, "Gdansk")
+
+print("\nExercise - 3 d)\n")
+DbAndPlotActions.draw_plot_of_all_cities(cities)
