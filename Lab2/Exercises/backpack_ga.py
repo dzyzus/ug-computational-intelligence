@@ -1,20 +1,9 @@
-from Exercises.Models import backpack
 import random
 import pygad
 import numpy
+from Lab2.Exercises.Models import backpack
 
-S = [
-    backpack.item('zegar', 100, 7),
-    backpack.item('obraz-pejzaz', 300, 7),
-    backpack.item('obraz-portret', 200, 6),
-    backpack.item('radio', 40, 2),
-    backpack.item('laptop', 500, 5),
-    backpack.item('lampka nocna', 70, 6),
-    backpack.item('srebrne sztucce', 100, 1),
-    backpack.item('porcelana', 250, 3),
-    backpack.item('figura z brazu', 300, 10),
-    backpack.item('skorzana torebka', 280, 3),
-    backpack.item('odkurzacz', 300, 15)]
+S = backpack.create_backpack()
 
 backpack_max_weight = 25
 
@@ -24,37 +13,32 @@ gene_space = [0, 1]
 
 #definiujemy funkcję fitness
 def fitness_func(ga_instance, solution, solution_idx):
-    current_weight_s1 = 0
-    current_weight_s2 = 0
-    s1 = 0
-    s2 = 0
-    for item in S:
-        if (current_weight_s1 <= backpack_max_weight):
-            current_item = random.choice(S)
-            current_weight_s1 += current_item.weight
-            s1 += current_item.value
-    for item in S:
-         if (current_weight_s2 <= backpack_max_weight):
-            current_item = random.choice(S)
-            current_weight_s2 += current_item.weight
-            s2 += current_item.value
+    current_weight = 0
+    current_value = 0
 
-    fitness = -numpy.abs(s1-s2)
-    return fitness
+    for item in range(len(S)):
+        if solution[item] == 1:
+            current_weight += S[item].weight
+            current_value += S[item].value
+
+    if current_weight >= backpack_max_weight:
+        return 0
+
+    return current_value
 
 fitness_function = fitness_func
 
 #ile chromsomów w populacji
 #ile genow ma chromosom
-sol_per_pop = 10
+sol_per_pop = 50
 num_genes = len(S)
 
 #ile wylaniamy rodzicow do "rozmanazania" (okolo 50% populacji)
 #ile pokolen
 #ilu rodzicow zachowac (kilka procent)
-num_parents_mating = 5
-num_generations = 30
-keep_parents = 2
+num_parents_mating = 10
+num_generations = 20
+keep_parents = 10
 
 #jaki typ selekcji rodzicow?
 #sss = steady, rws=roulette, rank = rankingowa, tournament = turniejowa
@@ -66,7 +50,7 @@ crossover_type = "single_point"
 #mutacja ma dzialac na ilu procent genow?
 #trzeba pamietac ile genow ma chromosom
 mutation_type = "random"
-mutation_percent_genes = 8
+mutation_percent_genes = 10
 
 #inicjacja algorytmu z powyzszymi parametrami wpisanymi w atrybuty
 
@@ -93,13 +77,24 @@ def run_algorithm():
 
 #podsumowanie: najlepsze znalezione rozwiazanie (chromosom+ocena)
 def summary():
-    print("Parameters of the best solution : {solution}".format(solution=solution))
-    print("Fitness value of the best solution = {solution_fitness}".format(solution_fitness=solution_fitness))
+    summary = ga_instance.best_solution()
+    print(f"Parameters of the best solution generation : {summary}\n")
+    print_items(summary[0])
+    print(f"Value of items: {summary[1]}")
 
 def draw_plot():
-    #tutaj dodatkowo wyswietlamy sume wskazana przez jedynki
-    prediction = numpy.sum(S*solution)
-    print("Predicted output based on the best solution : {prediction}".format(prediction=prediction))
-
     #wyswietlenie wykresu: jak zmieniala sie ocena na przestrzeni pokolen
     ga_instance.plot_fitness()
+
+def print_items(solution):
+    selected_items = []
+    weight = 0
+    for item in range(len(S)):
+        if solution[item] == 1.:
+            selected_items.append(S[item])
+            weight += S[item].weight
+    for item in selected_items:
+        print(f"Nazwa: {item.name}, Waga: {item.weight}, Cena: {item.value}")
+
+    print(f"\nWeight of items: {weight}")
+

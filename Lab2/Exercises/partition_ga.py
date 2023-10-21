@@ -14,6 +14,7 @@ def fitness_func(ga_instance, solution, solution_idx):
     sum2 = numpy.sum(solution_invert * S)
     fitness = -numpy.abs(sum1-sum2)
     #lub: fitness = 1.0 / (1.0 + numpy.abs(sum1-sum2))
+    print(fitness)
     return fitness
 
 fitness_function = fitness_func
