@@ -1,13 +1,17 @@
 import pygad
+import time
 from Lab2.Exercises.Models import backpack
 
 S = backpack.create_backpack()
-
+number_of_executions = 10
 backpack_max_weight = 25
 
 #definiujemy parametry chromosomu
 #geny to liczby: 0 lub 1
 gene_space = [0, 1]
+
+#kiedy stop
+stop_criteria = "reach_1600"
 
 #definiujemy funkcję fitness
 def fitness_func(ga_instance, solution, solution_idx):
@@ -19,7 +23,7 @@ def fitness_func(ga_instance, solution, solution_idx):
             current_weight += S[item].weight
             current_value += S[item].value
 
-    if current_weight >= backpack_max_weight:
+    if current_weight > backpack_max_weight:
         return 0
 
     return current_value
@@ -50,26 +54,42 @@ crossover_type = "single_point"
 mutation_type = "random"
 mutation_percent_genes = 10
 
-#inicjacja algorytmu z powyzszymi parametrami wpisanymi w atrybuty
-
-ga_instance = pygad.GA(gene_space=gene_space,
-                    num_generations=num_generations,
-                    num_parents_mating=num_parents_mating,
-                    fitness_func=fitness_function,
-                    sol_per_pop=sol_per_pop,
-                    num_genes=num_genes,
-                    parent_selection_type=parent_selection_type,
-                    keep_parents=keep_parents,
-                    crossover_type=crossover_type,
-                    mutation_type=mutation_type,
-                    mutation_percent_genes=mutation_percent_genes)
-
-solution, solution_fitness, solution_idx = ga_instance.best_solution()
-
-
 #uruchomienie algorytmu
 def run_algorithm():
-    ga_instance.run()
+    global_time = 0
+    for iteration in range(number_of_executions):
+        global ga_instance
+        global solution, solution_fitness, solution_idx
+
+        #inicjalizacja ga_instance po każdej iteracji
+        #w innym przypadku jak chcemy odczytać ile generacji nam to zajęło, zwróci pierwszą poprawnie
+        #reszta będzie inkrementowana o 1
+        ga_instance = pygad.GA(gene_space=gene_space,
+                               num_generations=num_generations,
+                               num_parents_mating=num_parents_mating,
+                               fitness_func=fitness_function,
+                               sol_per_pop=sol_per_pop,
+                               num_genes=num_genes,
+                               parent_selection_type=parent_selection_type,
+                               keep_parents=keep_parents,
+                               crossover_type=crossover_type,
+                               mutation_type=mutation_type,
+                               stop_criteria=stop_criteria,
+                               mutation_percent_genes=mutation_percent_genes)
+
+        solution, solution_fitness, solution_idx = ga_instance.best_solution()
+
+        #pomiar czasu dla instancji
+        start = time.time()
+        ga_instance.run()
+        end = time.time()
+        global_time += end-start
+
+        print(f"\nAlgorithm execution time: {end-start}")
+        print(f"{stop_criteria} value takes {ga_instance.generations_completed} generations")
+    print(f"Average time of 10 executions: {global_time/number_of_executions}")
+
+    #jeśli chcemy wypisywać podsumowanie i rysować za każdym razem wykres przenieś to do pętli for
     summary()
     draw_plot()
 
@@ -95,4 +115,3 @@ def print_items(solution):
         print(f"Nazwa: {item.name}, Waga: {item.weight}, Cena: {item.value}")
 
     print(f"\nWeight of items: {weight}")
-
