@@ -6,14 +6,14 @@ S = backpack.create_backpack()
 number_of_executions = 10
 backpack_max_weight = 25
 
-#definiujemy parametry chromosomu
-#geny to liczby: 0 lub 1
+# definiujemy parametry chromosomu
+# geny to liczby: 0 lub 1
 gene_space = [0, 1]
 
-#kiedy stop
+# kiedy stop
 stop_criteria = "reach_1600"
 
-#definiujemy funkcję fitness
+# definiujemy funkcję fitness
 def fitness_func(ga_instance, solution, solution_idx):
     current_weight = 0
     current_value = 0
