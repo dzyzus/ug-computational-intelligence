@@ -103,7 +103,7 @@ mutation_percent_genes = 10
 
 def initialize_population():
     population = []
-    for _ in range(max_moves):
+    for pop in range(max_moves):
         solution = np.random.choice(gene_space, size=max_moves)
         population.append(solution)
     return population

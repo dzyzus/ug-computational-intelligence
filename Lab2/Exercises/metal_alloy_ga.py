@@ -1,7 +1,7 @@
 import pygad
 import math
 import random
-from Lab2.Exercises.Models import metals
+from Exercises.Models import metals
 
 S = metals.create_set()
 
