@@ -1,0 +1,76 @@
+2023-10-30 21:28:10,384 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-10-30 21:28:10,542 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.150318427277904, best pos: [1.07209787 1.00046219]
+2023-10-30 21:28:13,296 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-10-30 21:28:13,305 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 6.491181631143373e-12, best pos: [-1.05210584e-06  2.32039973e-06]
+2023-10-30 21:28:15,048 - matplotlib.animation - WARNING - MovieWriter imagemagick unavailable; using Pillow instead.
+2023-10-30 21:28:15,049 - matplotlib.animation - INFO - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+2023-10-30 21:29:12,883 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-10-30 21:29:12,997 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.0045218677304746, best pos: [1.00015699 1.00210172]
+2023-11-01 21:20:52,157 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (6,)
+Traceback (most recent call last):
+  File "C:\Users\wrkmm\OneDrive\Pulpit\Docker\ug-computational-intelligence\venv\Lib\site-packages\pyswarms\backend\generators.py", line 81, in generate_swarm
+    pos = center * np.random.uniform(
+                   ^^^^^^^^^^^^^^^^^^
+  File "numpy\\random\\mtrand.pyx", line 1170, in numpy.random.mtrand.RandomState.uniform
+  File "_common.pyx", line 600, in numpy.random._common.cont
+  File "_common.pyx", line 518, in numpy.random._common.cont_broadcast_2
+  File "_common.pyx", line 245, in numpy.random._common.validate_output_shape
+ValueError: Output size (10, 6) is not compatible with broadcast dimensions of inputs (10, 10, 6).
+2023-11-01 21:21:13,197 - pyswarms.single.global_best - INFO - Optimize for 200 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2023-11-01 21:21:13,220 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 1.3207667718454338e-11, best pos: [-2.99742199e-06 -2.05502533e-06]
+2023-11-01 21:21:14,626 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:21:14,633 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.0015594790153563578, best pos: [ 0.03933726 -0.00347263]
+2023-11-01 21:21:16,382 - matplotlib.animation - WARNING - MovieWriter imagemagick unavailable; using Pillow instead.
+2023-11-01 21:21:16,382 - matplotlib.animation - INFO - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+2023-11-01 21:21:40,245 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (6,)
+Traceback (most recent call last):
+  File "C:\Users\wrkmm\OneDrive\Pulpit\Docker\ug-computational-intelligence\venv\Lib\site-packages\pyswarms\backend\generators.py", line 81, in generate_swarm
+    pos = center * np.random.uniform(
+                   ^^^^^^^^^^^^^^^^^^
+  File "numpy\\random\\mtrand.pyx", line 1170, in numpy.random.mtrand.RandomState.uniform
+  File "_common.pyx", line 600, in numpy.random._common.cont
+  File "_common.pyx", line 518, in numpy.random._common.cont_broadcast_2
+  File "_common.pyx", line 245, in numpy.random._common.validate_output_shape
+ValueError: Output size (10, 6) is not compatible with broadcast dimensions of inputs (10, 10, 6).
+2023-11-01 21:22:20,526 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (6,)
+Traceback (most recent call last):
+  File "C:\Users\wrkmm\OneDrive\Pulpit\Docker\ug-computational-intelligence\venv\Lib\site-packages\pyswarms\backend\generators.py", line 81, in generate_swarm
+    pos = center * np.random.uniform(
+                   ^^^^^^^^^^^^^^^^^^
+  File "numpy\\random\\mtrand.pyx", line 1170, in numpy.random.mtrand.RandomState.uniform
+  File "_common.pyx", line 600, in numpy.random._common.cont
+  File "_common.pyx", line 518, in numpy.random._common.cont_broadcast_2
+  File "_common.pyx", line 245, in numpy.random._common.validate_output_shape
+ValueError: Output size (10, 6) is not compatible with broadcast dimensions of inputs (10, 10, 6).
+2023-11-01 21:23:06,446 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:23:06,551 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.40065827032238177, best pos: [0.24620284 0.4743416  0.08270214 0.0724212  0.25266567 0.19778288]
+2023-11-01 21:23:09,923 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:23:09,931 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.10842051079571638, best pos: [0.19697349 0.26385973]
+2023-11-01 21:23:11,535 - matplotlib.animation - WARNING - MovieWriter imagemagick unavailable; using Pillow instead.
+2023-11-01 21:23:11,535 - matplotlib.animation - INFO - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+2023-11-01 21:24:03,378 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:24:03,506 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.3390445478992055, best pos: [0.00220919 0.23766255 0.00355105 0.2995506  0.32449489 0.29583116]
+2023-11-01 21:24:04,696 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:24:04,705 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 5.965724749595642e-05, best pos: [0.00142692 0.00759086]
+2023-11-01 21:24:06,372 - matplotlib.animation - WARNING - MovieWriter imagemagick unavailable; using Pillow instead.
+2023-11-01 21:24:06,373 - matplotlib.animation - INFO - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+2023-11-01 21:24:39,056 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:24:39,160 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.45230111857415223, best pos: [0.17444775 0.38599778 0.33740395 0.32143193 0.02898577 0.23425355]
+2023-11-01 21:24:42,117 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:24:42,126 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.01769249859725457, best pos: [0.10644232 0.07976548]
+2023-11-01 21:24:43,874 - matplotlib.animation - WARNING - MovieWriter imagemagick unavailable; using Pillow instead.
+2023-11-01 21:24:43,874 - matplotlib.animation - INFO - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+2023-11-01 21:25:30,437 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:25:30,559 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -2.812458687099429, best pos: [0.95307375 0.81842875 0.99981739 0.99822537 0.39355767 0.60197392]
+2023-11-01 21:25:33,143 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:25:33,150 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.0254473816580945e-15, best pos: [ 2.70303755e-08 -4.79041353e-08]
+2023-11-01 21:25:34,812 - matplotlib.animation - WARNING - MovieWriter imagemagick unavailable; using Pillow instead.
+2023-11-01 21:25:34,812 - matplotlib.animation - INFO - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+2023-11-01 21:26:30,485 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:26:30,613 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 1.0168261750985863, best pos: [0.13799785 0.89694875 0.0993846  0.55637291 0.99989535 0.86858212]
+2023-11-01 21:26:32,464 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:26:32,471 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 9.038211871725712e-05, best pos: [0.00526589 0.00791534]
+2023-11-01 21:26:34,129 - matplotlib.animation - WARNING - MovieWriter imagemagick unavailable; using Pillow instead.
+2023-11-01 21:26:34,130 - matplotlib.animation - INFO - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+2023-11-01 21:26:42,622 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.5}
+2023-11-01 21:26:42,741 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -2.764671337180339, best pos: [0.76150583 0.71637171 0.91896848 0.99980567 0.42984466 0.55976721]

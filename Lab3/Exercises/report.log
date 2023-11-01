@@ -1,0 +1,10 @@
+2023-11-01 21:22:18,602 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (6,)
+Traceback (most recent call last):
+  File "C:\Users\wrkmm\OneDrive\Pulpit\Docker\ug-computational-intelligence\venv\Lib\site-packages\pyswarms\backend\generators.py", line 81, in generate_swarm
+    pos = center * np.random.uniform(
+                   ^^^^^^^^^^^^^^^^^^
+  File "numpy\\random\\mtrand.pyx", line 1170, in numpy.random.mtrand.RandomState.uniform
+  File "_common.pyx", line 600, in numpy.random._common.cont
+  File "_common.pyx", line 518, in numpy.random._common.cont_broadcast_2
+  File "_common.pyx", line 245, in numpy.random._common.validate_output_shape
+ValueError: Output size (10, 6) is not compatible with broadcast dimensions of inputs (10, 10, 6).
