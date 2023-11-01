@@ -23,6 +23,17 @@ COORDS = (
     (85, 84)
 )
 
+"""
+COORDS = (
+    (20, 52),
+    (43, 50),
+    (20, 84),
+    (70, 65),
+    (29, 90),
+    (87, 83),
+    (73, 23),
+)
+"""
 
 def random_coord():
     r = random.randint(0, len(COORDS))
@@ -44,12 +55,14 @@ def plot_all_edges():
         plt.plot((a[0], b[0]), (a[1], b[1]))
 
 
+# Alfa - feromony mają wieksze znaczenie
+# Beta - krawędź ma większe znaczenie
+
 def run_aco():
     plot_nodes()
 
-    colony = AntColony(COORDS, ant_count=50, alpha=1, beta=1, 
-                        pheromone_evaporation_rate=0.25, pheromone_constant=1000.0,
-                        iterations=250)
+    colony = AntColony(COORDS, ant_count=150, alpha=1.0, beta=0,
+                       pheromone_evaporation_rate=0.05, pheromone_constant=200, iterations=150)
 
     optimal_nodes = colony.get_path()
 
