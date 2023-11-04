@@ -61,8 +61,8 @@ def plot_all_edges():
 def run_aco():
     plot_nodes()
 
-    colony = AntColony(COORDS, ant_count=150, alpha=1.0, beta=0,
-                       pheromone_evaporation_rate=0.05, pheromone_constant=200, iterations=150)
+    colony = AntColony(COORDS, ant_count=150, alpha=1.0, beta=0.1,
+                       pheromone_evaporation_rate=0.05, pheromone_constant=200, iterations=30)
 
     optimal_nodes = colony.get_path()
 
