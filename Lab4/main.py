@@ -1,4 +1,4 @@
-#from Exercises import iris
+from Exercises import iris
 from Exercises import iris_ex2
 
 #iris.run()

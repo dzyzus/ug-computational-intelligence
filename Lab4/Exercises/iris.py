@@ -20,7 +20,7 @@ def read():
     #podzial na zbior testowy (30%) i treningowy (70%), ziarno losowosci = 13
 
 def run():
-    read_test_and_train_set()
+    read()
 
 def read_test_and_train_set():
     print(f"-- TEST SET --\n{test_set}")
