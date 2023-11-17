@@ -11,7 +11,6 @@ import graphviz
 # Add C:\Program Files (x86)\Graphviz2.38\bin\dot.exe to System Path
 
 iris = datasets.load_iris()
-print(iris)
 X = iris.data
 y = iris.target
 
@@ -32,9 +31,9 @@ def constructor_evaluation():
     y_pred = clf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     print(f'Accuracy: {accuracy * 100:.2f}%')
-    Error(y_pred)
+    matrix(y_pred)
 
-def Error(y_pred):
-    error_matrix = confusion_matrix(y_test, y_pred)
-    print('Error Matrix:')
-    print(error_matrix)
+def matrix(y_pred):
+    matrix = confusion_matrix(y_test, y_pred)
+    print('Confusion Matrix:')
+    print(matrix)
