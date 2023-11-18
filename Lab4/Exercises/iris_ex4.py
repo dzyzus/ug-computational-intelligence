@@ -45,8 +45,4 @@ def run():
     print(f'NB Accuracy: {accuracy_nb * 100:.2f}%')
     print(f'NB Confusion Matrix:')
     print(conf_matrix_nb)
-
-    print('\nComparison of classifier accuracy:')
-    for k in k_values:
-        print(f'k-NN = {k} acc: {accuracy_knn * 100:.2f}%')
     print(f'NB acc: {accuracy_nb * 100:.2f}%')
