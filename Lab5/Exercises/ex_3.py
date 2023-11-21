@@ -1,4 +1,3 @@
-from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
@@ -41,7 +40,7 @@ def neural_network():
     print(accuracy_score(predictions_train, train_labels))
     predictions_test = mlp.predict(test_data)
     print(accuracy_score(predictions_test, test_labels))
-
     confusion_matrix(predictions_train, train_labels)
+    
     print(classification_report(predictions_test, test_labels))
 
