@@ -25,7 +25,7 @@ train_labels_numeric = train_labels.map(label_mapping)
 test_labels_numeric = test_labels.map(label_mapping)
 
 # Is one complete pass through the entire training dataset
-NB_EPOCHS = 50 
+NB_EPOCHS = 500 
 BATCH_SIZE = 16
 
 def run():
@@ -41,6 +41,7 @@ def run():
     # 2nd hidden layer: 3 neurons, RELU
     model.add(Dense(3, kernel_initializer='uniform', activation='relu'))
     # output layer: dim=1, activation sigmoid
+    # must be sigmoid only 0/1 in that situation
     model.add(Dense(1, kernel_initializer='uniform', activation='sigmoid'))
 
     # AVAILABLE OPTIMIZERS
@@ -52,10 +53,11 @@ def run():
     # nadam - combination of adam and sgd with momentum
     # Compile the model
     # since we are predicting 0/1
-    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy', optimizer='sgd', metrics=['accuracy'])
 
     # checkpoint: store the best model
-    ckpt_model = 'pima-weights.best.hdf5'
+    # hdf - hierarchical data format version
+    ckpt_model = 'weights.hdf5'
     checkpoint = ModelCheckpoint(ckpt_model, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
     callbacks_list = [checkpoint]
 
@@ -101,6 +103,9 @@ def draw_plot(history):
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(['train', 'test'])
+
+    # save
+    plt.savefig("relu_relu_sigmoid_sgd_500iteration")
 
     # Display the plots
     plt.show()
