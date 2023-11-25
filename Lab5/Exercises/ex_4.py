@@ -13,8 +13,8 @@ from keras.utils import plot_model
 dataset = pd.read_csv("diabetes.csv")
 
 # Assuming df is your DataFrame loaded from the dataset
-X = dataset.drop('class', axis=1)  # Features
-y = dataset['class']  # Target variable
+X = dataset.drop('class', axis=1)
+y = dataset['class']
 
 # Split the dataset into a training set and a test set
 (train_data, test_data, train_labels, test_labels) = train_test_split(X, y, random_state=231056, test_size=0.7)
@@ -25,8 +25,7 @@ train_labels_numeric = train_labels.map(label_mapping)
 test_labels_numeric = test_labels.map(label_mapping)
 
 # Is one complete pass through the entire training dataset
-NB_EPOCHS = 500 
-BATCH_SIZE = 16
+NB_EPOCHS = 50 
 
 def run():
     # Create our model
@@ -37,7 +36,7 @@ def run():
     # tanh (-1,1)
     # softmax - transform the results into a probability distribution
     # 1st hidden layer: 6 neurons, RELU
-    model.add(Dense(6, input_dim=8, kernel_initializer='uniform', activation='relu'))
+    model.add(Dense(6, kernel_initializer='uniform', activation='relu'))
     # 2nd hidden layer: 3 neurons, RELU
     model.add(Dense(3, kernel_initializer='uniform', activation='relu'))
     # output layer: dim=1, activation sigmoid
@@ -53,7 +52,7 @@ def run():
     # nadam - combination of adam and sgd with momentum
     # Compile the model
     # since we are predicting 0/1
-    model.compile(loss='binary_crossentropy', optimizer='sgd', metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     # checkpoint: store the best model
     # hdf - hierarchical data format version
@@ -66,7 +65,6 @@ def run():
                         train_labels_numeric.astype(int),
                         validation_data=(test_data, test_labels_numeric.astype(int)),
                         epochs=NB_EPOCHS,
-                        batch_size=BATCH_SIZE,
                         callbacks=callbacks_list,
                         verbose=0)
     
@@ -105,7 +103,7 @@ def draw_plot(history):
     plt.legend(['train', 'test'])
 
     # save
-    plt.savefig("relu_relu_sigmoid_sgd_500iteration")
+    plt.savefig("input_ur_name_50iteration")
 
     # Display the plots
     plt.show()
