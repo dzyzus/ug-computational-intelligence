@@ -9,15 +9,18 @@ data = np.zeros((128, 128, 3), dtype=np.uint8)
 def draw(img, x, y, color):
     img[x, y] = [color, color, color]
 
-def convolve(data, kernel, stride = 1):
+def convolve(data, kernel, stride=1):
     m, n = kernel.shape
-    result = np.zeros_like(data[:, :, 0])
+    height, width, _ = data.shape
 
-    # height
-    for i in range(data.shape[0] - m + 1):
-        # width
-        for j in range(data.shape[1] - n + 1):
-            result[i, j] = np.sum(data[i:i+m, j:j+n, 0] * kernel)
+    output_height = (height - m) // stride + 1
+    output_width = (width - n) // stride + 1
+
+    result = np.zeros((output_height, output_width))
+
+    for i in range(0, height - m + 1, stride):
+        for j in range(0, width - n + 1, stride):
+            result[i // stride, j // stride] = np.sum(data[i:i+m, j:j+n, 0] * kernel)
 
     return result
     
@@ -100,6 +103,20 @@ plt.imshow(result, cmap='gray', interpolation='nearest')
 plt.title('After convolve with kernel horizontal')
 plt.show()
 
+result = convolve(data, s1, 2)
+
+# Display
+plt.imshow(result, cmap='gray', interpolation='nearest')
+plt.title('After convolve with kernel vertical stride = 2')
+plt.show()
+
+result = convolve(data, kernel_horizontal, 2)
+
+# Display
+plt.imshow(result, cmap='gray', interpolation='nearest')
+plt.title('After convolve with kernel horizontal stride = 2')
+plt.show()
+
 result = convolve(data, s1)
 
 # Display
@@ -111,7 +128,7 @@ result = convolve(data, s2)
 
 # Display
 plt.imshow(result, cmap='gray', interpolation='nearest')
-plt.title('After convolve with sobel 45*')
+plt.title('After convolve with sobel 45* - oblique')
 plt.show()
 
 result = convolve(data, s3)
@@ -125,5 +142,5 @@ result = convolve(data, s4)
 
 # Display
 plt.imshow(result, cmap='gray', interpolation='nearest')
-plt.title('After convolve with sobel 135*')
+plt.title('After convolve with sobel 135 - oblique*')
 plt.show()
