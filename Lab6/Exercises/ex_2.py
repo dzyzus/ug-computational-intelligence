@@ -38,8 +38,7 @@ logging.basicConfig(filename=f'{first_activation}_{second_activation}_{third_act
 logger = logging.getLogger()
 logger.addHandler(logging.StreamHandler())
 
-
-# Ustal ścieżkę do danych
+# Data
 dataset = 'dogs-cats-mini/'
 
 # Percentage of data set
