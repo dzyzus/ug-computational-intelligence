@@ -17,7 +17,7 @@ logging.basicConfig(filename='training.log', level=logging.INFO)
 logger = logging.getLogger()
 logger.addHandler(logging.StreamHandler())
 
-# Ustal ścieżkę do danych
+# Data
 dataset = 'dogs-cats-mini/'
 
 # Only 25%
