@@ -12,16 +12,37 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 
+# AVAILABLE ACTIVATORS: 
+# sigmoid - 0/1 values
+# relu - max (0, x)
+# tanh (-1,1)
+# softmax - transform the results into a probability distribution
+
+# AVAILABLE OPTIMIZERS
+# adam - combines algorithms adagrad and rmsprop
+# sgd - stochastic gradient descent
+# rmsprop - adaptive optimizer, adjusts learning rate for each parameter
+# adagrad - modifies learning rate based on previous gradients
+# adadelta - extension of adagrad that attempts to address its shortcomings
+# nadam - combination of adam and sgd with momentum
+# Compile the model
+# since we are predicting 0/1
+first_activation = "relu"
+second_activation = "relu"
+third_activation = "relu"
+fourth_activation = "relu"
+optimizer = "nadam"
+epochs = 30
 # Logger
-logging.basicConfig(filename='training.log', level=logging.INFO)
+logging.basicConfig(filename=f'{first_activation}_{second_activation}_{third_activation}_{fourth_activation}_{optimizer}_{epochs}.log', level=logging.INFO)
 logger = logging.getLogger()
 logger.addHandler(logging.StreamHandler())
 
 # Data
 dataset = 'dogs-cats-mini/'
 
-# Only 25%
-def load_partial_dataset(directory, percentage=0.25):
+# Percentage of data set
+def load_partial_dataset(directory, percentage=0.05):
     logger.info("Wczytywanie obrazków.")
     X, y = list(), list()
     for subdir in listdir(directory):
@@ -59,24 +80,24 @@ X_test = X_test.astype('float32') / 255.0
 # Zdefiniuj model CNN
 logger.info("Definiowanie modelu")
 model = Sequential()
-model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(200, 200, 3)))
+model.add(Conv2D(32, (3, 3), activation=first_activation, input_shape=(200, 200, 3)))
 model.add(MaxPooling2D((2, 2)))
-model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(Conv2D(64, (3, 3), activation=second_activation))
 model.add(MaxPooling2D((2, 2)))
-model.add(Conv2D(128, (3, 3), activation='relu'))
+model.add(Conv2D(128, (3, 3), activation=third_activation))
 model.add(MaxPooling2D((2, 2)))
 model.add(Flatten())
-model.add(Dense(256, activation='relu'))
+model.add(Dense(256, activation=fourth_activation))
 model.add(Dropout(0.5))  # Dropout 50% loss
 model.add(Dense(1, activation='sigmoid')) # 0/1
 
 # Compile
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
 
 # Train
 logger.info("Rozpoczynam trenowanie modelu.")
 checkpoint = ModelCheckpoint('best_model.h5', monitor='val_accuracy', save_best_only=True, mode='max', verbose=1)
-history = model.fit(X_train, y_train, epochs=10, batch_size=64, validation_data=(X_test, y_test), callbacks=[checkpoint])
+history = model.fit(X_train, y_train, epochs=epochs, batch_size=64, validation_data=(X_test, y_test), callbacks=[checkpoint])
 logger.info("Zakończono trenowanie modelu.")
 
 # Plot
@@ -86,8 +107,8 @@ plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.ylim([0, 1])
 plt.legend(loc='lower right')
+plt.savefig(f"{first_activation}_{second_activation}_{third_activation}_{fourth_activation}_{optimizer}_{epochs}.png")
 plt.show()
-plt.savefig("lab6_ex2")
 
 # Acc
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
