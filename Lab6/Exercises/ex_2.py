@@ -42,7 +42,7 @@ logger.addHandler(logging.StreamHandler())
 dataset = 'dogs-cats-mini/'
 
 # Percentage of data set
-def load_partial_dataset(directory, percentage=0.05):
+def load_partial_dataset(directory, percentage=0.001):
     logger.info("Wczytywanie obrazków.")
     X, y = list(), list()
     for subdir in listdir(directory):

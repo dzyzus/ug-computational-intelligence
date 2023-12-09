@@ -120,11 +120,11 @@ plt.show()
 result = convolve(data, s1)
 
 # Display
-plt.imshow(result, cmap='gray', interpolation='nearest')
-plt.title('After convolve with sobel 0*')
-plt.show()
+#plt.imshow(result, cmap='gray', interpolation='nearest')
+#plt.title('After convolve with sobel 0*')
+#plt.show()
 
-result = convolve(data, s2)
+#result = convolve(data, s2)
 
 # Display
 plt.imshow(result, cmap='gray', interpolation='nearest')
@@ -134,9 +134,9 @@ plt.show()
 result = convolve(data, s3)
 
 # Display
-plt.imshow(result, cmap='gray', interpolation='nearest')
-plt.title('After convolve with sobel 90*')
-plt.show()
+#plt.imshow(result, cmap='gray', interpolation='nearest')
+#plt.title('After convolve with sobel 90*')
+#plt.show()
 
 result = convolve(data, s4)
 

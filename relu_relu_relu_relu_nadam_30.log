@@ -1266,3 +1266,45 @@ WARNING:tensorflow:From C:\Users\wrkmm\AppData\Local\Programs\Python\Python311\L
 INFO:root:Zakoñczono trenowanie modelu.
 INFO:root:Dok³adnoœæ na zbiorze testowym: 0.6480000019073486
 INFO:root:Koniec.
+INFO:root:Wczytano dane.
+INFO:root:Wczytywanie obrazków.
+INFO:root:cat.0.jpg
+INFO:root:cat.1.jpg
+INFO:root:cat.10.jpg
+INFO:root:cat.100.jpg
+INFO:root:cat.1000.jpg
+INFO:root:cat.10000.jpg
+INFO:root:cat.10001.jpg
+INFO:root:cat.10002.jpg
+INFO:root:cat.10003.jpg
+INFO:root:cat.10004.jpg
+INFO:root:cat.10005.jpg
+INFO:root:cat.10006.jpg
+INFO:root:dog.0.jpg
+INFO:root:dog.1.jpg
+INFO:root:dog.10.jpg
+INFO:root:dog.100.jpg
+INFO:root:dog.1000.jpg
+INFO:root:dog.10000.jpg
+INFO:root:dog.10001.jpg
+INFO:root:dog.10002.jpg
+INFO:root:dog.10003.jpg
+INFO:root:dog.10004.jpg
+INFO:root:dog.10005.jpg
+INFO:root:dog.10006.jpg
+INFO:root:Dzielenie na zbiory train/test
+INFO:root:Definiowanie modelu
+WARNING:tensorflow:From C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\keras\src\backend.py:873: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\keras\src\layers\pooling\max_pooling2d.py:161: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+WARNING:tensorflow:From C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\keras\src\optimizers\__init__.py:309: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+INFO:root:Rozpoczynam trenowanie modelu.
+WARNING:tensorflow:From C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\keras\src\utils\tf_utils.py:492: The name tf.ragged.RaggedTensorValue is deprecated. Please use tf.compat.v1.ragged.RaggedTensorValue instead.
+
+WARNING:tensorflow:From C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\keras\src\engine\base_layer_utils.py:384: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+INFO:root:Zakoñczono trenowanie modelu.
+INFO:root:Dok³adnoœæ na zbiorze testowym: 0.6000000238418579
+INFO:root:Koniec.
