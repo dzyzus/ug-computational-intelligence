@@ -1,5 +1,4 @@
 from Helpers.process_data import ProcessData
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout
@@ -11,7 +10,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
 
-epochs = 11
+epochs = 100
 batch_size = 20
 model_filename = 'thyroid-classifier-model.h5'
 
