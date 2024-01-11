@@ -4,10 +4,6 @@ from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout
 from keras.wrappers.scikit_learn import KerasClassifier
 import os
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
 
 epochs = 100
