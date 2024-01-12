@@ -196,7 +196,7 @@ if(os.path.isfile('gan_weights.h5')):
 # load image data
 dataset = load_real_samples()
 #number of epochs
-n_epochs = 1
+n_epochs = 2
 #batch size
 batch_size = 256
 # train model
