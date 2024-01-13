@@ -6,7 +6,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 import os
 from sklearn.metrics import confusion_matrix, classification_report
 
-epochs = 100
+epochs = 2
 batch_size = 20
 model_filename = 'thyroid-classifier-model.h5'
 
