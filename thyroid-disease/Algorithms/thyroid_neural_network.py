@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import ConfusionMatrixDisplay
 
-epochs = 1000
+epochs = 10000
 batch_size = 20
 model_filename = 'thyroid-classifier-model.h5'
 
