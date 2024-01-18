@@ -1,6 +1,10 @@
 import pandas as pd
 import numpy as np
+import os
+import graphviz
 from sklearn.model_selection import train_test_split
+from keras.models import load_model
+from sklearn.tree import export_graphviz
 
 path = "thyroidDF.csv"
 
@@ -11,7 +15,6 @@ diagnoses = {'-': 0, 'A': 1, 'B': 1, 'C': 1, 'D': 1, 'E': 1, 'F': 1, 'G': 1, 'H'
 feature_cols = ['age', 'sex', 'on_thyroxine', 'query_on_thyroxine', 'on_antithyroid_meds', 'sick',
                 'pregnant', 'thyroid_surgery', 'I131_treatment', 'query_hypothyroid', 'query_hyperthyroid',
                 'lithium', 'goitre', 'tumor', 'hypopituitary', 'psych', 'TSH', 'TT4', 'T4U', 'FTI']
-
 
 class ProcessData:
     def load_data(self):
@@ -53,6 +56,24 @@ class ProcessData:
         dataset[boolean_columns] = dataset[boolean_columns].replace({'t': 1, 'f': 0})
 
         return dataset
+    
+    def save_model(self, model, filename):
+        model.save(filename)
+        print(f"Model saved to {filename}")
+
+    def load_saved_model(self, filename):
+        if os.path.exists(filename):
+            return load_model(filename)
+        else:
+            raise FileNotFoundError(f"The model file {filename} does not exist.")
+        
+    def save_decision_tree_visualization(self, model, target_names, filename='decision_tree'):
+        dot_data = export_graphviz(model, out_file=None, feature_names=feature_cols,
+                                   class_names=target_names, filled=True, rounded=True, special_characters=True)
+
+        graph = graphviz.Source(dot_data)
+
+        graph.render(filename, format='png', cleanup=True)     
 
     def check_thyroid_status(self, model, scaler):
         age = float(input("Age: "))
