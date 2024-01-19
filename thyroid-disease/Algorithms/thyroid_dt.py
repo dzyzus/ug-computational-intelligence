@@ -29,26 +29,8 @@ def run():
     # Use Decision Tree for predictions
     testLabelPredicted = model.predict(X_test_scaled)
 
-    # Calculate accuracy
-    accuracy = accuracy_score(y_test, testLabelPredicted)
-    print(f"Accuracy: {accuracy * 100:.2f}%")
-
     # Confusion Matrix
     conf_matrix = confusion_matrix(y_test, testLabelPredicted)
-
-    # Extract values from the confusion matrix
-    tn = conf_matrix[0, 0]
-    fp = conf_matrix[0, 1]
-    fn = conf_matrix[1, 0]
-    tp = conf_matrix[1, 1]
-
-    print("----------------------------------------------------------")
-    print("Confusion matrix")
-    print("----------------------------------------------------------")
-    print(f'True Positives: {tp}')
-    print(f'True Negatives: {tn}')
-    print(f'False Positives: {fp}')
-    print(f'False Negatives: {fn}')
 
     # Additional Predictions
     hypothyroid_predicted = (testLabelPredicted == 1)
@@ -91,8 +73,11 @@ def run():
     plt.savefig("confusion_matrix_plot_dt.png")
     plt.show()
     
-
     data.save_decision_tree_visualization(model, target_names=['Healthy', 'Hypothyroid', 'Hyperthyroid'])
+
+    # Calculate accuracy
+    accuracy = accuracy_score(y_test, testLabelPredicted)
+    print(f"Accuracy: {accuracy * 100:.2f}%")
 
     # Prompt user for self-check
     check_myself = input("Do you want to check yourself? (Y/N): ").upper()

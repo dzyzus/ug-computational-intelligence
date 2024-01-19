@@ -83,20 +83,6 @@ def run():
     # Confusion Matrix
     conf_matrix = confusion_matrix(y_test, testLabelPredicted)
 
-    # Extract values from the confusion matrix
-    tn = conf_matrix[0, 0]
-    fp = conf_matrix[0, 1]
-    fn = conf_matrix[1, 0]
-    tp = conf_matrix[1, 1]
-
-    print("----------------------------------------------------------")
-    print("Confusion matrix")
-    print("----------------------------------------------------------")
-    print(f'True Positives: {tp}')
-    print(f'True Negatives: {tn}')
-    print(f'False Positives: {fp}')
-    print(f'False Negatives: {fn}')
-
     # Additional Predictions
     hypothyroid_predicted = (testLabelPredicted == 1)
     hyperthyroid_predicted = (testLabelPredicted == 2)
