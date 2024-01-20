@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import ConfusionMatrixDisplay
 
-epochs = 10000
-batch_size = 20
+epochs = 500
+batch_size = 16
 model_filename = 'thyroid-classifier-model.h5'
 
 def create_keras_model(input_dim, num_classes=3):
